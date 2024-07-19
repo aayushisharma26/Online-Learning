@@ -1,70 +1,71 @@
-// import React, { useState } from 'react';
-// import './Login.css';
+import React, { useState } from 'react';
+import './Signup.css';
 
-// const Login = () => {
-//   const [formData, setFormData] = useState({
-//     email: '',
-//     password: ''
-//   });
+function Signup() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-//   const [alertMessage, setAlertMessage] = useState('');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (password === confirmPassword) {
+    //   console.log('Signup successful!');
+    alert('Signup successful');
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value
-//     });
-//   };
+    } else {
+      alert('Passwords do not match');
+    }
+  };
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const { email, password } = formData;
+  return (
+    <div className="signup-container">
+      <form onSubmit={handleSubmit}>
+        <h2>Signup</h2>
+        <label>
+          Name:
+          <input
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Enter name"
+          />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Enter email"
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Enter password"
+          />
+        </label>
+        <br />
+        <label>
+          Confirm Password:
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+            placeholder="Confirm password"
+          />
+        </label>
+        <br />
+        <button type="submit">Signup</button>
+      </form>
+    </div>
+  );
+}
 
-//     if (!email || !password) {
-//       setAlertMessage('Please fill in all fields');
-//       return;
-//     }
-
-//     console.log('Form submitted', formData);
-//     setAlertMessage('Login successful!');
-//   };
-
-//   return (
-//     <div className="login-box">
-//       <h2>Login</h2>
-//       {alertMessage && (
-//         <div className={`alert ${alertMessage === 'Login successful!' ? 'alert-success' : 'alert-danger'}`} role="alert">
-//           {alertMessage}
-//         </div>
-//       )}
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-group">
-//           <label htmlFor="email">Email</label>
-//           <input
-//             type="email"
-//             id="email"
-//             name="email"
-//             value={formData.email}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="password">Password</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             value={formData.password}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-//         <button type="submit" className="btn btn-primary">Login</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Login;
+export default Signup;
