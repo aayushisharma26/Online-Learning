@@ -1,17 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css';
-import Signup from './Signup/Signup.jsx';
-
+import React from 'react';
+import Coursedatas from './Course_data/course.jsx';
 
 function App() {
-
   return (
     <>
-      <Signup/>
+      <Coursedatas />
     </>
   )
 }
 
-export default App
+export default App;
+
+
+
+
+
+
