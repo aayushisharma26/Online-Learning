@@ -9,13 +9,23 @@ function Signup() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (password === confirmPassword) {
-    //   console.log('Signup successful!');
-    alert('Signup successful');
 
-    } else {
-      alert('Passwords do not match');
+    if (!name || !email || !password || !confirmPassword) {
+      alert('All fields are required');
+      return;
     }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    alert('Signup successful!');
+
+    setName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
   };
 
   return (
@@ -31,7 +41,6 @@ function Signup() {
             placeholder="Enter name"
           />
         </label>
-        <br />
         <label>
           Email:
           <input
@@ -41,7 +50,6 @@ function Signup() {
             placeholder="Enter email"
           />
         </label>
-        <br />
         <label>
           Password:
           <input
@@ -51,7 +59,6 @@ function Signup() {
             placeholder="Enter password"
           />
         </label>
-        <br />
         <label>
           Confirm Password:
           <input
@@ -61,7 +68,6 @@ function Signup() {
             placeholder="Confirm password"
           />
         </label>
-        <br />
         <button type="submit">Signup</button>
       </form>
     </div>

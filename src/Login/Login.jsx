@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
-import './Login.css'
+import './Login.css';
 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (username === 'admin' && password === 'password') {
-      console.log('Login successful!');
-    } else {
-      alert('Invalid username or password');
-    }
+    alert('Login successful!');
+    setEmail('');
+    setPassword('');
   };
 
   return (
-    <div className="login-container">
+    // <div className="mainy form-container">
+    <>
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <label>
-          Username:
+          Email:
           <input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            placeholder="Enter username"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Enter email"
           />
         </label>
         <br />
@@ -40,16 +39,9 @@ function Login() {
         <br />
         <button type="submit">Login</button>
       </form>
-    </div>
+     </> 
+    // </div>
   );
 }
 
 export default Login;
-
-
-
-
-
-
-
-
