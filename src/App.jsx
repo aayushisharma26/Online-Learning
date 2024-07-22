@@ -91,11 +91,6 @@ function App() {
         <Route path="/course" element={<Coursedatas/>} />
         <Route path="/signup" element={<Signup />} /> 
         <Route path="/login" element={<Login />} /> 
-
-
-
-
-        
       </Routes>
       
     </Router>
